@@ -71,7 +71,7 @@ class TestFrontDesk < Minitest::Test
     @front_desk.check_in(@guest1)
     @front_desk.check_in(@guest2)
     @front_desk.check_out(@guest1)
-    assert_equal(1, @front_desk.checked_in_guests.length)
+    assert_equal(1, @front_desk.checked_in_guests.length())
     assert_equal("Disco Stu", @front_desk.checked_in_guests[0].guest.name())
     assert_equal(540, @front_desk.till())
   end
@@ -80,7 +80,7 @@ class TestFrontDesk < Minitest::Test
     @front_desk.create_reservation(@guest1, @room1, 5)
     @front_desk.check_in(@guest1)
     actual = @front_desk.add_song_request(@guest1, "Unchained Melody")
-    assert_equal(["Good Vibrations","Mr Tabourine Man","Happy Together", "Unchained Melody"], @front_desk.checked_in_guests[0].room.playlist)
+    assert_equal(["Good Vibrations","Mr Tabourine Man","Happy Together", "Unchained Melody"], @front_desk.checked_in_guests[0].room.playlist())
   end
 
 end

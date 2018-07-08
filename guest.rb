@@ -1,7 +1,9 @@
 class Guest
 
-  attr_reader :name, :wallet, :favourite_song
+# Getters
+  attr_reader :name, :wallet
 
+# Initialise argument list
   def initialize(name, wallet, favourite_song)
 
     @name = name
@@ -10,8 +12,9 @@ class Guest
 
   end
 
-  # Class methods
+# Class methods
 
+  # Check the guest can afford to pay
   def can_afford_to_pay?(amount)
     if (@wallet < amount)
       return false
@@ -20,6 +23,7 @@ class Guest
     end
   end
 
+  # Pay amount if guest can afford to do so
   def pay(amount)
     if !can_afford_to_pay?(amount)
       return nil
