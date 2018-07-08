@@ -18,7 +18,7 @@ class FrontDesk
 
 # Private class methods
   private
-  def find_room_by_name(room)
+  def find_room(room)
     @rooms.find { |karaoke_room| karaoke_room.name == room.name }
   end
 
@@ -35,7 +35,7 @@ class FrontDesk
 
   # Check if room is available
   def is_room_available?(room, party_size)
-    found_room = find_room_by_name(room)
+    found_room = find_room(room)
     return true if (found_room != nil) && (found_room.capacity >= party_size)
     return false
   end
