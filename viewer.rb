@@ -109,6 +109,7 @@ def check_in()
   puts "\e[H\e[2J"
   puts "You chose to check in"
   guest_name = get_guest_name()
+  check_in = @front_desk.check_in_by_name(guest_name)
   puts check_in
   puts ""
 end
